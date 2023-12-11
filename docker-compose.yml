@@ -1,0 +1,30 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:stable-alpine
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+
+  node-app:
+    build: .
+    environment:
+      - PORT=3000
+      - REDIS_SECRET=flyingPumpkin
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=myUsername
+      - MONGO_INITDB_ROOT_PASSWORD=myPassword
+    volumes:
+      - mongodb:/data/db
+  
+  redis:
+    image: redis
+    command: redis-server --requirepass myPassword
+      
+
+volumes:
+  mongodb:
