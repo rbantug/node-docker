@@ -35,8 +35,8 @@ app.use(
     store: redisStore,
     resave: false,
     saveUninitialized: false,
-    secret: 'no_secret',
-    // secret: process.env.REDIS_SECRET,
+    // @ts-ignore
+    secret: process.env.SESSION_SECRET,
     cookie: {
       path: '/',
       httpOnly: true,
