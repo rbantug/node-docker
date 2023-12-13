@@ -7,7 +7,7 @@ RUN if [ "${NODE_ENV}" = "development" ]; \
         then npm install; \
         else npm install --production; \
         fi
-COPY . ./
+COPY . .
 ENV PORT 4000
 EXPOSE $PORT
 CMD ["npm", "run", "dev"]
