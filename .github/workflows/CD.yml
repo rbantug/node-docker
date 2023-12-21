@@ -11,5 +11,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - uses: actions/checkout@v4
     - name: Pull Docker Image
       run: docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml node-app
