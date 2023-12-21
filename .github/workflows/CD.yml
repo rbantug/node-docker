@@ -1,0 +1,15 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Pull Docker Image
+      run: docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml node-app
