@@ -12,4 +12,4 @@ jobs:
 
     steps:
     - name: Pull Docker Image
-      run: docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml node-app
+      run: docker stack deploy -c ../app/docker-compose.yml -c ../app/docker-compose.prod.yml node-app
