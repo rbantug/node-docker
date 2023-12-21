@@ -47,7 +47,7 @@ app.use(
 );
 
 app.get('/api', (req, res) => {
-  res.send(`<h1>Muda Muda MUDA ${process.env.NODE_ENV}!!!</h1>`);
+  res.send(`<h1>Muda Muda MUDA ${process.env.NODE_ENV}CI/CD works!</h1>`);
   console.log('testing');
 });
 
