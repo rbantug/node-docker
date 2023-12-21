@@ -11,7 +11,7 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: change to app directory
+      run: cd ../app
     - name: Pull Docker Image
-      run: |
-      cd ../app
-      docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml node-app
+      run: docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml node-app
